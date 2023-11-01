@@ -189,6 +189,4 @@ class Employee:
         """Return list of reviews associated with current employee"""
         from review import Review
         all_reviews = CURSOR.execute('SELECT * FROM reviews WHERE employee_id = ?',(self.id,)).fetchall()
-        print(all_reviews)
-        print(self.id)
         return [Review.instance_from_db(review) for review in all_reviews]
